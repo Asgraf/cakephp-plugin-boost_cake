@@ -283,4 +283,11 @@ class BoostCakeFormHelper extends FormHelper {
 		return $out;
 	}
 
+	public function create($model=null,$options=array()) {
+		$defaultOptions = Hash::get($this->settings,'defaultOptions');
+		if($defaultOptions) {
+			$options = Hash::merge($defaultOptions,$options);
+		}
+		return parent::create($model,$options);
+	}
 }
